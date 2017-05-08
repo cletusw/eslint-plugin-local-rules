@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/cletusw/eslint-plugin-local-rules/issues"
   },
-  "homepage": "https://github.com/cletusw/eslint-plugin-local-rules#readme",
-  "peerDependencies": {
-    "eslint": ">=0.8.0"
-  }
+  "homepage": "https://github.com/cletusw/eslint-plugin-local-rules#readme"
 }
