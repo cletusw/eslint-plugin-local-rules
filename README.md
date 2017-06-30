@@ -1,7 +1,9 @@
 # eslint-plugin-local-rules
 A plugin for ESLint that allows you to use project-specific rules, similar to the [`--rulesdir`](http://eslint.org/docs/user-guide/command-line-interface#--rulesdir) command line option ([more](http://eslint.org/docs/developer-guide/working-with-rules#runtime-rules)).
 
-Workaround for https://github.com/eslint/eslint/issues/2715
+Workaround for https://github.com/eslint/eslint/issues/8769 (previously https://github.com/eslint/eslint/issues/2715).
+
+See https://github.com/taskworld/eslint-plugin-local for another solution.
 
 
 ## Dependencies
