@@ -3,7 +3,15 @@
 
 var path = require('path');
 
-var rules = requireUp('eslint-local-rules.js');
+var rules = requireUp('eslint-local-rules.js', __dirname);
+
+if (!rules) {
+  throw new Error(
+    'eslint-plugin-local-rules: ' +
+    'Cannot find "eslint-local-rules.js" ' +
+    '(looking up from "' + __dirname + '").'
+  );
+}
 
 module.exports = {
   rules: rules,
@@ -13,7 +21,6 @@ module.exports = {
 // Similar to native `require` behavior, but doesn't check in `node_modules` folders
 // Based on https://github.com/js-cli/node-findup-sync
 function requireUp(filename, cwd) {
-  cwd = cwd || process.cwd();
   var filepath = path.resolve(cwd, filename);
 
   try {
