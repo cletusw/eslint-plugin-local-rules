@@ -26,7 +26,10 @@ function requireUp(filename, cwd) {
   try {
     return require(filepath);
   } catch(error) {
-    // Ignore (will recurse to parent directory)
+    // Ignore OS errors (will recurse to parent directory)
+    if (error.code !== 'MODULE_NOT_FOUND') {
+      throw error;
+    }
   }
 
   var dir = path.dirname(cwd);
