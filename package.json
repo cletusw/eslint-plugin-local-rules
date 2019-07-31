@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-local-rules",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A plugin for ESLint that allows you to use project-specific rules",
   "main": "index.js",
   "scripts": {
