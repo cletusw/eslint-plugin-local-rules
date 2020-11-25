@@ -3,12 +3,13 @@
 
 var path = require('path');
 
-var rules = requireUp('eslint-local-rules.js', __dirname);
+var exts = ['js', 'cjs'];
+var rules = requireUp('eslint-local-rules', __dirname);
 
 if (!rules) {
   throw new Error(
     'eslint-plugin-local-rules: ' +
-    'Cannot find "eslint-local-rules.js" ' +
+    'Cannot find "eslint-local-rules.{' + exts.join(',') + "}" +
     '(looking up from "' + __dirname + '").'
   );
 }
@@ -23,12 +24,14 @@ module.exports = {
 function requireUp(filename, cwd) {
   var filepath = path.resolve(cwd, filename);
 
-  try {
-    return require(filepath);
-  } catch(error) {
-    // Ignore OS errors (will recurse to parent directory)
-    if (error.code !== 'MODULE_NOT_FOUND') {
-      throw error;
+  for (var i = 0; i < exts.length; i++) {
+    try {
+      return require(filepath + '.' + exts[i]);
+    } catch(error) {
+      // Ignore OS errors (will recurse to parent directory)
+      if (error.code !== 'MODULE_NOT_FOUND') {
+        throw error;
+      }
     }
   }
 
