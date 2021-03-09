@@ -3,7 +3,12 @@ A plugin for ESLint that allows you to use project-specific rules, similar to th
 
 Workaround for https://github.com/eslint/eslint/issues/8769 (previously https://github.com/eslint/eslint/issues/2715).
 
-See https://github.com/taskworld/eslint-plugin-local for another solution.
+
+## Other solutions
+
+* https://github.com/taskworld/eslint-plugin-local
+* https://github.com/not-an-aardvark/eslint-plugin-rulesdir
+  * Allows for a custom rules directory name
 
 
 ## Dependencies
@@ -20,7 +25,7 @@ npm install eslint-plugin-local-rules
 
 ## Usage
 
-### ./eslint-local-rules.js
+### ./eslint-local-rules.js (or ./eslint-local-rules/index.js)
 
 ```javascript
 'use strict';
