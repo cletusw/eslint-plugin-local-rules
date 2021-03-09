@@ -3,7 +3,9 @@
 
 var path = require('path');
 
-var exts = ['js', 'cjs'];
+// Empty extension takes advantage of Node's default require behavior to check for
+// eslint-local-rules.js as well as an eslint-local-rules folder with an index.js
+var exts = ['', '.cjs'];
 var rules = requireUp('eslint-local-rules', __dirname);
 
 if (!rules) {
@@ -26,7 +28,7 @@ function requireUp(filename, cwd) {
 
   for (var i = 0; i < exts.length; i++) {
     try {
-      return require(filepath + '.' + exts[i]);
+      return require(filepath + exts[i]);
     } catch(error) {
       // Ignore OS errors (will recurse to parent directory)
       if (error.code !== 'MODULE_NOT_FOUND') {
