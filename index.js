@@ -34,6 +34,10 @@ function requireUp(filename, cwd) {
       if (error.code !== 'MODULE_NOT_FOUND') {
         throw error;
       }
+      // Handle cases where the 'MODULE_NOT_FOUND' error was caused by a different module
+      if (!error.message.includes(`Cannot find module '${filepath + exts[i]}'`)) {
+        throw error;
+      } 
     }
   }
 
