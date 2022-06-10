@@ -24,18 +24,14 @@ module.exports = {
 // Similar to native `require` behavior, but doesn't check in `node_modules` folders
 // Based on https://github.com/js-cli/node-findup-sync
 function requireUp(filename, cwd) {
-  var filepath = path.resolve(cwd, filename) + exts[i];
+  var filepath = path.resolve(cwd, filename);
 
   for (var i = 0; i < exts.length; i++) {
     try {
-      return require(filepath);
+      return require(filepath + exts[i]);
     } catch(error) {
-      var filepathNotFound = error.code === 'MODULE_NOT_FOUND' &&
-          error.message.includes(`Cannot find module '${filepath}'`);
-      
-      // Rethrow unless error is just saying `filepath` not found (in that case,
-      // let next loop check parent directory instead).
-      if (!filepathNotFound) {
+      // Ignore OS errors (will recurse to parent directory)
+      if (error.code !== 'MODULE_NOT_FOUND') {
         throw error;
       }
     }
