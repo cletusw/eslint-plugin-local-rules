@@ -2,11 +2,9 @@
 'use strict';
 
 var { requireUp } = require('./requireUp');
+var { DEFAULT_EXTENSIONS } = require('./constants');
 
-// Empty extension takes advantage of Node's default require behavior to check for
-// eslint-local-rules.js as well as an eslint-local-rules folder with an index.js
-var exts = ['', '.cjs'];
-var rules = requireUp('eslint-local-rules', exts, __dirname);
+var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
 
 if (!rules) {
   throw new Error(

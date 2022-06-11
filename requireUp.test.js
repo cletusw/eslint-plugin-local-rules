@@ -1,18 +1,39 @@
 import path from "node:path";
-import { describe, it, expect } from "vitest";
 import { fileURLToPath } from "node:url";
+import { describe, it, expect } from "vitest";
 
 import { requireUp } from "./requireUp";
+import { DEFAULT_EXTENSIONS } from "./constants";
 
-const rootDirectory = path.dirname(fileURLToPath(import.meta.url));
-const extensions = ["", ".cjs"];
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+// Path to the 'fixtures' directory
+const fixturesDir = path.resolve(__dirname, './fixtures');
 
 describe("requireUp", () => {
-  it("should find the file", () => {
+  it("should find the file at eslint-local-rules.js", () => {
     const file = requireUp(
       "eslint-local-rules",
-      extensions,
-      path.join(rootDirectory, "./fixtures/projectWithResolution/a")
+      DEFAULT_EXTENSIONS,
+      path.join(fixturesDir, "./projectWithResolution/a")
+    );
+    expect(file).toBeDefined();
+  });
+
+  it("should find the file at eslint-local-rules.cjs", () => {
+    const file = requireUp(
+      "eslint-local-rules",
+      DEFAULT_EXTENSIONS,
+      path.join(fixturesDir, "./projectWithResolutionCjs/a")
+    );
+    expect(file).toBeDefined();
+  });
+
+  it("should find the file at eslint-local-rules/index.js", () => {
+    const file = requireUp(
+      "eslint-local-rules",
+      DEFAULT_EXTENSIONS,
+      path.join(fixturesDir, "./projectWithResolutionIndex/a")
     );
     expect(file).toBeDefined();
   });
@@ -20,8 +41,8 @@ describe("requireUp", () => {
   it("should fail to find a file that does not exist", () => {
     const file = requireUp(
       "some-file-that-will-not-resolve",
-      extensions,
-      path.join(rootDirectory, "./fixtures/projectWithNoResolution/a")
+      DEFAULT_EXTENSIONS,
+      path.join(fixturesDir, "./projectWithNoResolution/a")
     );
     expect(file).not.toBeDefined();
   });
@@ -30,8 +51,8 @@ describe("requireUp", () => {
     expect(() => {
       requireUp(
         "eslint-local-rules",
-        extensions,
-        path.join(rootDirectory, "./fixtures/projectWithBadImport/a")
+        DEFAULT_EXTENSIONS,
+        path.join(fixturesDir, "./projectWithBadImport/a")
       );
     }).toThrowError(`Cannot find module './does-not-exist'`);
   });
