@@ -4,7 +4,9 @@
   "description": "A plugin for ESLint that allows you to use project-specific rules",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "prettier": "prettier --write .",
+    "test": "vitest",
+    "test:ci": "vitest run"
   },
   "repository": {
     "type": "git",
