@@ -9,8 +9,12 @@ var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
 if (!rules) {
   throw new Error(
     'eslint-plugin-local-rules: ' +
-    'Cannot find "eslint-local-rules{' + ['.js'].concat(exts.filter(Boolean)) + "} " +
-    'or eslint-local-rules/index.js (checked all ancestors of "' + __dirname + '").'
+      'Cannot find "eslint-local-rules{' +
+      ['.js'].concat(exts.filter(Boolean)) +
+      '} ' +
+      'or eslint-local-rules/index.js (checked all ancestors of "' +
+      __dirname +
+      '").'
   );
 }
 

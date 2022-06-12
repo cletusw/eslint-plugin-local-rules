@@ -1,10 +1,10 @@
-var path = require("path");
+var path = require('path');
 
-/** 
+/**
  * Attempt to require a file, recursively checking parent directories until found.
  * Similar to native `require` behavior, but doesn't check in `node_modules` folders.
  * Based on https://github.com/js-cli/node-findup-sync.
- * 
+ *
  * @param filename {string} The name of the target file
  * @param exts {string[]} The file extensions to look for (e.g. '.cjs')
  * @param cwd {string} The directory to search in
