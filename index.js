@@ -4,9 +4,9 @@
 var { requireUp } = require('./requireUp');
 var { DEFAULT_EXTENSIONS } = require('./constants');
 
-var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
+var config = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
 
-if (!rules) {
+if (!config) {
   throw new Error(
     'eslint-plugin-local-rules: ' +
       'Cannot find "eslint-local-rules{' +
@@ -18,6 +18,10 @@ if (!rules) {
   );
 }
 
-module.exports = {
-  rules: rules,
-};
+if (config.rules) {
+  module.exports = config;
+} else {
+  module.exports = {
+    rules: config,
+  };
+}

@@ -51,6 +51,39 @@ module.exports = {
 };
 ```
 
+#### Specifying eslint plugin config (optional)
+
+If you need to specify additional eslint plugin config, simply place your rules in a `rules` property. You're then free
+to specify other config properties such as 
+[`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins).
+
+```javascript
+'use strict';
+
+module.exports = {
+  rules: {
+    'disallow-identifiers': {
+      meta: {
+        // ...
+      },
+      create: function (context) {
+        // ...
+      },
+    },
+  },
+  processors: {
+    'processor-name': {
+      preprocess: function (text, filename) {
+        // ...
+      },
+      postprocess: function (messages, filename) {
+        // ...
+      },
+    },
+  },
+};
+```
+
 ### ./.eslintrc
 
 ```json
