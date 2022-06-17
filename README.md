@@ -63,6 +63,12 @@ module.exports = {
 }
 ```
 
+### General eslint plugin config
+
+If you need to specify additional eslint plugin config such as 
+[`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins), consider using 
+https://github.com/taskworld/eslint-plugin-local. 
+
 ## License
 
 MIT
