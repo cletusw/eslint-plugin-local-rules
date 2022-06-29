@@ -7,6 +7,8 @@ Workaround for https://github.com/eslint/eslint/issues/8769 (previously https://
 ## Other solutions
 
 - https://github.com/taskworld/eslint-plugin-local
+  - Allows specifying additonal plugin config such as 
+    [`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins)
 - https://github.com/not-an-aardvark/eslint-plugin-rulesdir
   - Allows for a custom rules directory name
 
