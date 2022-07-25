@@ -10,7 +10,7 @@ if (!rules) {
   throw new Error(
     'eslint-plugin-local-rules: ' +
       'Cannot find "eslint-local-rules{' +
-      ['.js'].concat(exts.filter(Boolean)) +
+      ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
       '} ' +
       'or eslint-local-rules/index.js (checked all ancestors of "' +
       __dirname +
