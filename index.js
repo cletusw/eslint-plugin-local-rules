@@ -7,6 +7,10 @@ var { DEFAULT_EXTENSIONS } = require('./constants');
 var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
 
 if (!rules) {
+  rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, process.cwd());
+}
+
+if (!rules) {
   throw new Error(
     'eslint-plugin-local-rules: ' +
       'Cannot find "eslint-local-rules{' +
