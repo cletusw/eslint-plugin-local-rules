@@ -65,6 +65,18 @@ module.exports = {
 }
 ```
 
+### npm/yarn/pnpm workspaces support
+
+This plugin supports npm/yarn/pnpm workspaces, although note that if the eslint-local-rules.js file is in the workspace subdirectory, running from the project root is unsupported.
+
+For example, if there's an eslint-local-rules.js and index.js in ./src/app:
+
+Wrong: `npx eslint src/app/index.js`
+
+Right: `(cd src/app; npx eslint index.js)`
+
+Also note that if there is an eslint-local-rules.js file in *both* the workspace subdirectory and project root, the workspace one takes precedence (assuming you're running eslint from the workspace directory, as above).
+
 ## License
 
 MIT
