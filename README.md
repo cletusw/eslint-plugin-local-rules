@@ -22,7 +22,7 @@ Workaround for https://github.com/eslint/eslint/issues/8769 (previously https://
 npm install eslint-plugin-local-rules
 ```
 
-## Usage
+<h2 id="usage">Usage (JavaScript)</h3>
 
 ### ./eslint-local-rules.js (or ./eslint-local-rules/index.js)
 
@@ -65,7 +65,55 @@ module.exports = {
 }
 ```
 
-### npm/yarn/pnpm workspaces support
+## Usage (TypeScript)
+
+```
+npm install ts-node @types/eslint
+```
+
+### ./eslint-local-rules/index.js
+
+```javascript
+require("ts-node").register({
+  transpileOnly: true,
+  compilerOptions: {
+    module: "commonjs",
+  },
+});
+
+module.exports = require("./rules").default;
+```
+
+### ./eslint-local-rules/rules.ts
+
+```typescript
+import type { Rule } from "eslint";
+
+export default {
+  "disallow-identifiers": {
+    meta: {
+      docs: {
+        description: 'disallow identifiers',
+        category: 'Possible Errors',
+        recommended: false,
+      },
+      schema: [],
+    },
+    create: function (context) {
+      return {
+        Identifier: function (node) {
+          context.report({
+            node: node,
+            message: 'Identifiers not allowed for Super Important reasons.',
+          });
+        },
+      };
+    },
+  },
+} satisfies Record<string, Rule.RuleModule>;
+```
+
+## npm/yarn/pnpm workspaces support
 
 This plugin supports npm/yarn/pnpm workspaces, although note that if the eslint-local-rules.js file is in the workspace subdirectory, running from the project root is unsupported.
 
