@@ -19,6 +19,8 @@ if (!rules) {
       ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
       '} ' +
       'or eslint-local-rules/index.js (checked all ancestors of "' +
+      process.cwd() +
+      '" and "' +
       __dirname +
       '").'
   );
