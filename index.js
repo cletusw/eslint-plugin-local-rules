@@ -4,10 +4,12 @@
 var { requireUp } = require('./requireUp');
 var { DEFAULT_EXTENSIONS } = require('./constants');
 
-var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
+// First check for local rules in the current working directory and its ancestors (enables npm/yarn workspaces support)
+var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, process.cwd());
 
 if (!rules) {
-  rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, process.cwd());
+  // Then try the directory containing this plugin and its ancestors
+  rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, __dirname);
 }
 
 if (!rules) {
