@@ -4,7 +4,7 @@
 var { requireUp } = require('./requireUp');
 var { DEFAULT_EXTENSIONS } = require('./constants');
 
-// First check for local rules in the current working directory and its ancestors (enables npm/yarn workspaces support)
+// First check for local rules in the current working directory and its ancestors (enables npm/yarn/pnpm workspaces support)
 var rules = requireUp('eslint-local-rules', DEFAULT_EXTENSIONS, process.cwd());
 
 if (!rules) {
