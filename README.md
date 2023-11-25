@@ -40,10 +40,33 @@ module.exports = {
 
 ### ./.eslintrc
 
+#### Use all rules as errors
+
 ```json
 {
-  "plugins": ["eslint-plugin-local-rules"],
+  "plugins": ["local-rules"],
+  "extends": [
+    "plugin:local-rules/all"
+  ]
+}
+```
 
+#### Use all rules as warnings
+
+```json
+{
+  "plugins": ["local-rules"],
+  "extends": [
+    "plugin:local-rules/all-warn"
+  ]
+}
+```
+
+#### Customize each rule independently
+
+```json
+{
+  "plugins": ["local-rules"],
   "rules": {
     "local-rules/disallow-identifiers": "error"
   }
