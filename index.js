@@ -28,8 +28,7 @@ if (!rules) {
 
 function getConfig(type) {
   return {
-    plugins: ["local-rules"],
-    rules: Object.fromEntries(rules.map((rule) => {
+    rules: Object.fromEntries(Object.keys(rules).map((rule) => {
       return [`local-rules/${rule}`, type]
     }))
   }
