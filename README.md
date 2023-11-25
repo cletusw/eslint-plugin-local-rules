@@ -60,7 +60,7 @@ module.exports = {
   "plugins": ["eslint-plugin-local-rules"],
 
   "rules": {
-    "local-rules/disallow-identifiers": 2
+    "local-rules/disallow-identifiers": "error"
   }
 }
 ```
@@ -70,6 +70,8 @@ module.exports = {
 ```
 npm install ts-node @types/eslint
 ```
+
+You'll also need an eslint config like the [.eslintrc](#eslintrc) above ([more info](https://eslint.org/docs/latest/use/configure/configuration-files)).
 
 ### ./eslint-local-rules/index.js
 
