@@ -35,7 +35,6 @@ module.exports = {
       docs: {
         description: 'disallow identifiers',
         category: 'Possible Errors',
-        recommended: false,
       },
       schema: [],
     },
@@ -97,7 +96,6 @@ export default {
       docs: {
         description: 'disallow identifiers',
         category: 'Possible Errors',
-        recommended: false,
       },
       schema: [],
     },
