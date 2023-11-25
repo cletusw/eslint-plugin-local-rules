@@ -60,7 +60,7 @@ module.exports = {
 {
   "plugins": ["local-rules"],
   "extends": [
-    "plugin:local-rules/error"
+    "plugin:local-rules/all"
   ]
 }
 ```
@@ -71,7 +71,7 @@ module.exports = {
 {
   "plugins": ["local-rules"],
   "extends": [
-    "plugin:local-rules/warn"
+    "plugin:local-rules/all-warn"
   ]
 }
 ```
