@@ -113,13 +113,13 @@ Also note that if there is an eslint-local-rules.js file in *both* the workspace
 
 ## Alternatives
 
-- [eslint-plugin-local](https://github.com/taskworld/eslint-plugin-local) - Allows specifying additonal plugin config such as [`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins)
-- [eslint-plugin-rulesdir](https://github.com/not-an-aardvark/eslint-plugin-rulesdir) - Allows for a custom rules directory name
+* [eslint-plugin-local](https://github.com/taskworld/eslint-plugin-local) - Allows specifying additonal plugin config such as [`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins)
+* [eslint-plugin-rulesdir](https://github.com/not-an-aardvark/eslint-plugin-rulesdir) - Allows for a custom rules directory name
 
 ## Context for this plugin
 
-- https://github.com/eslint/eslint/issues/2715
-- https://github.com/eslint/eslint/issues/8769
+* https://github.com/eslint/eslint/issues/2715
+* https://github.com/eslint/eslint/issues/8769
 
 ## License
 
