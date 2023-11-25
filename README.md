@@ -1,24 +1,12 @@
 # eslint-plugin-local-rules
 
-A plugin for ESLint that allows you to use project-specific rules, similar to the [`--rulesdir`](http://eslint.org/docs/user-guide/command-line-interface#--rulesdir) command line option ([more](http://eslint.org/docs/developer-guide/working-with-rules#runtime-rules)).
+A plugin for ESLint that allows you to use project-specific rules, similar to the deprecated [`--rulesdir`](http://eslint.org/docs/user-guide/command-line-interface#--rulesdir) command line option ([more](http://eslint.org/docs/developer-guide/working-with-rules#runtime-rules)).
 
 Workaround for https://github.com/eslint/eslint/issues/8769 (previously https://github.com/eslint/eslint/issues/2715).
 
-## Other solutions
-
-- https://github.com/taskworld/eslint-plugin-local
-  - Allows specifying additonal plugin config such as 
-    [`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins)
-- https://github.com/not-an-aardvark/eslint-plugin-rulesdir
-  - Allows for a custom rules directory name
-
-## Dependencies
-
-- Requires ESLint version 0.8.0 or higher
-
 ## Install
 
-```
+```sh
 npm install eslint-plugin-local-rules
 ```
 
@@ -124,6 +112,11 @@ Wrong: `npx eslint src/app/index.js`
 Right: `(cd src/app; npx eslint index.js)`
 
 Also note that if there is an eslint-local-rules.js file in *both* the workspace subdirectory and project root, the workspace one takes precedence (assuming you're running eslint from the workspace directory, as above).
+
+## Alternatives
+
+- [eslint-plugin-local](https://github.com/taskworld/eslint-plugin-local) - Allows specifying additonal plugin config such as [`processors`](https://eslint.org/docs/developer-guide/working-with-plugins#processors-in-plugins)
+- [eslint-plugin-rulesdir](https://github.com/not-an-aardvark/eslint-plugin-rulesdir) - Allows for a custom rules directory name
 
 ## License
 
