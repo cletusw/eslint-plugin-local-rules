@@ -13,16 +13,16 @@ if (!rules) {
 }
 
 if (!rules) {
-  throw new Error(f
-  'eslint-plugin-local-rules: ' +
-    'Cannot find "eslint-local-rules{' +
-    ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
-    '} ' +
-    'or eslint-local-ruddsdsdles/index.js (checked all ancestors of "' +
-    process.cwd() +
-    '" and "' +
-    __dirname +
-    '").'
+  throw new Error(
+    'eslint-plugin-local-rules: ' +
+      'Cannot find "eslint-local-rules{' +
+      ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
+      '} ' +
+      'or eslint-local-rules/index.js (checked all ancestors of "' +
+      process.cwd() +
+      '" and "' +
+      __dirname +
+      '").'
   );
 }
 
