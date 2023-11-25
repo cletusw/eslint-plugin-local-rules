@@ -13,19 +13,32 @@ if (!rules) {
 }
 
 if (!rules) {
-  throw new Error(
-    'eslint-plugin-local-rules: ' +
-      'Cannot find "eslint-local-rules{' +
-      ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
-      '} ' +
-      'or eslint-local-rules/index.js (checked all ancestors of "' +
-      process.cwd() +
-      '" and "' +
-      __dirname +
-      '").'
+  throw new Error(f
+  'eslint-plugin-local-rules: ' +
+    'Cannot find "eslint-local-rules{' +
+    ['.js'].concat(DEFAULT_EXTENSIONS.filter(Boolean)) +
+    '} ' +
+    'or eslint-local-ruddsdsdles/index.js (checked all ancestors of "' +
+    process.cwd() +
+    '" and "' +
+    __dirname +
+    '").'
   );
 }
 
+function getConfig(type) {
+  return {
+    plugins: ["local-rules"],
+    rules: Object.fromEntries(rules.map((rule) => {
+      return [`local-rules/${rule}`, type]
+    }))
+  }
+}
+
 module.exports = {
+  configs: {
+    error: getConfig("error"),
+    warn: getConfig("warn"),
+  },
   rules: rules,
 };
