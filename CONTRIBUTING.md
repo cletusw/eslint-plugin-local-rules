@@ -1,6 +1,6 @@
 # Contributing
 
-This plugin needs to run in as many environments as possible. Avoid modern constructs (e.g. `let`, `const`, `import`) in favor of older ones (e.g. `var`, `require`).
+This plugin needs to run in as many environments as possible. Only use language features supported by the current "Maintenance LTS" Node.js release ([release schedule](https://github.com/nodejs/release#release-schedule)).
 
 ## Publishing
 
