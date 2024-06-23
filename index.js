@@ -31,7 +31,7 @@ var getConfig = (type) => ({
       Object
         .keys(rules)
         .map((rule) => [`local-rules/${rule}`, type])
-    );
+    ),
 });
 
 module.exports = {
