@@ -26,6 +26,18 @@ if (!rules) {
   );
 }
 
+var getConfig = (type) => ({
+    rules: Object.fromEntries(
+      Object
+        .keys(rules)
+        .map((rule) => [`local-rules/${rule}`, type])
+    );
+});
+
 module.exports = {
+  configs: {
+    all: getConfig('error'),
+    'all-warn': getConfig('warn'),
+  },
   rules: rules,
 };
