@@ -36,8 +36,8 @@ var getConfig = (type) => ({
 
 module.exports = {
   configs: {
-    all: getConfig("error"),
-    'all-warn': getConfig("warn"),
+    all: getConfig('error'),
+    'all-warn': getConfig('warn'),
   },
   rules: rules,
 };
