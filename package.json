@@ -24,6 +24,6 @@
   "homepage": "https://github.com/cletusw/eslint-plugin-local-rules#readme",
   "devDependencies": {
     "prettier": "2.6.2",
-    "vitest": "^2.1.1"
+    "vitest": "^2.1.9"
   }
 }
