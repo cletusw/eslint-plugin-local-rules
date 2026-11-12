@@ -7,14 +7,19 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: read
+  id-token: write # Required for npm Trusted Publishing (OIDC) and provenance
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 26
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run test:ci
 
@@ -22,12 +27,15 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 26
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: |
+          if [[ "${{ github.ref_name }}" == *"-"* ]]; then
+            npm publish --tag next --access public
+          else
+            npm publish --access public
+          fi
